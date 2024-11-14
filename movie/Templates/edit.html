@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>edit</h2>
+<div class="container mt-5">
+        <h2 class="text-center mb-4">Enter Movie Details</h2>
+        <form method="post" enctype="multipart/form-data" >
+          {% csrf_token %}
+
+
+
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                <input type="text" class="form-control"  placeholder="Enter title" name="t" value="{{movie.title}}">
+            </div>
+
+            <!-- Description Field -->
+            <div class="mb-3">
+                <label  class="form-label">Description</label>
+                <textarea class="form-control" rows="3" placeholder="Enter description" name="d">{{movie.description}}</textarea>
+            </div>
+
+            <!-- Year Field -->
+            <div class="mb-3">
+                <label  class="form-label">Year</label>
+                <input type="number" class="form-control" placeholder="Enter year" name="y" value="{{movie.year}}">
+            </div>
+
+            <!-- Language Field -->
+            <div class="mb-3">
+               <label class="form-label" style="color:#F8F4E1;">Language</label>
+               <input type="text" class="form-control" name="l"  value="{{movie.language}}" placeholder="enter language">
+            </div>
+
+            <!-- Image Upload Field -->
+            <div class="mb-3">
+                <label  class="form-label">Upload Image</label>
+                <input class="form-control" type="file" name="i" >
+                <img src="{{movie.images.url}}" style="height:100px; width:100px;">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary ">Submit</button>
+        </form>
+    </div>
+{%  endblock %}

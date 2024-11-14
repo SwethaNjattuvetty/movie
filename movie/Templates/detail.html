@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="container">
+<div class="card mb-3 mx-auto mt-5" style="max-width: 740px; background-color:#D0B8A8; ">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{movie.images.url}}" class="img-fluid rounded-start p-3 " alt="..." style="height:300px; ">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{movie.title}}</h5>
+        <h6 class="card-text">{{movie.year}}</h6>
+        <h6 class="card-text">{{movie.language}}</h6>
+        <p class="card-text">{{movie.description}}</p><a href="{% url 'app1:home' %}" class="btn me-2" style="background-color:#795757;">Back to home</a>
+       <a href="{% url 'app1:edit' movie.id %}" class="btn me-2" style="background-color:#795757;">Edit</a>
+       <a href="{% url 'app1:delete' movie.id %}" class="btn " style="background-color:#795757;">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{% endblock %}
